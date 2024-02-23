@@ -106,9 +106,11 @@ coverage
 ############################
 
 .env
+.env.compose
 license.txt
 exports
 .strapi
 dist
 build
 .strapi-updater.json
+

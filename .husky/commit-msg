@@ -1,4 +1,0 @@
-# .husky/commit-msg
-. "$(dirname -- "$0")/common.sh"
-
-yarn commitlint --edit
