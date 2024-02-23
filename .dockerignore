@@ -18,5 +18,6 @@ build
 dist
 .strapi-updater.json
 .strapi
+data/*
 
 README.md
