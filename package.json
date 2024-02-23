@@ -9,11 +9,11 @@
   },
   "scripts": {
     "build": "strapi build",
-    "commit": "cz",
     "dev": "strapi develop",
-    "prepare": "husky",
     "start": "strapi start",
     "strapi": "strapi",
+    "commit": "cz",
+    "prepare": "husky",
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
     "format": "prettier --plugin-search-dir . --write .",
