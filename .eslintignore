@@ -114,3 +114,4 @@ build
 dist
 .strapi-updater.json
 .strapi
+data/*
