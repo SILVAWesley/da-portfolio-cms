@@ -22,7 +22,7 @@ jobs:
 
       - name: Build image
         run: |
-          docker build . --file Dockerfile --tag wesleyxsilva/da-portfolio-cms:latest \
+          docker build \
           --build-arg NODE_ENV="production" \
           --build-arg ADMIN_JWT_SECRET="${{secrets.ADMIN_JWT_SECRET}}" \
           --build-arg API_TOKEN_SALT="${{secrets.API_TOKEN_SALT}}" \
@@ -38,7 +38,8 @@ jobs:
           --build-arg HOST="${{secrets.HOST}}" \
           --build-arg JWT_SECRET="${{secrets.JWT_SECRET}}" \
           --build-arg PORT="${{secrets.PORT}}" \
-          --build-arg TRANSFER_TOKEN_SALT="${{secrets.TRANSFER_TOKEN_SALT}}"
+          --build-arg TRANSFER_TOKEN_SALT="${{secrets.TRANSFER_TOKEN_SALT}}" \
+          . --file Dockerfile --tag wesleyxsilva/da-portfolio-cms:latest
 
       - name: Login to DockerHub
         run: docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_TOKEN}}
@@ -55,4 +56,4 @@ jobs:
         run: docker pull wesleyxsilva/da-portfolio-cms:latest
 
       - name: Run container
-        run: docker run -d -p 1337:1337 wesleyxsilva/da-portfolio-cms --name da-portfolio-cms
+        run: docker run -d -p 1337:1337 --name da-portfolio-cms wesleyxsilva/da-portfolio-cms
