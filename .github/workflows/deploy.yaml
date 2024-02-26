@@ -23,22 +23,22 @@ jobs:
       - name: Build image
         run: |
           docker build . --file Dockerfile --tag wesleyxsilva/da-portfolio-cms:latest \
-          -build-arg NODE_ENV="production" \
-          -build-arg ADMIN_JWT_SECRET="${{secrets.ADMIN_JWT_SECRET}}" \
-          -build-arg API_TOKEN_SALT="${{secrets.API_TOKEN_SALT}}" \
-          -build-arg APP_KEYS="${{secrets.APP_KEYS}}" \
-          -build-arg AWS_ACCESS_KEY_ID="${{secrets.AWS_ACCESS_KEY_ID}}" \
-          -build-arg AWS_ACCESS_SECRET="${{secrets.AWS_ACCESS_SECRET}}" \
-          -build-arg AWS_BUCKET_NAME="${{secrets.AWS_BUCKET_NAME}}" \
-          -build-arg AWS_REGION="${{secrets.AWS_REGION}}" \
-          -build-arg DABASE_CLIENT="${{secrets.DATABASE_CLIENT}}" \
-          -build-arg DATABASE_URL="${{secrets.DATABASE_URL}}" \
-          -build-arg DOCKER_TOKEN="${{secrets.DOCKER_TOKEN}}" \
-          -build-arg DOCKER_USERNAME="${{secrets.DOCKER_USERNAME}}" \
-          -build-arg HOST="${{secrets.HOST}}" \
-          -build-arg JWT_SECRET="${{secrets.JWT_SECRET}}" \
-          -build-arg PORT="${{secrets.PORT}}" \
-          -build-arg TRANSFER_TOKEN_SALT="${{secrets.TRANSFER_TOKEN_SALT}}"
+          --build-arg NODE_ENV="production" \
+          --build-arg ADMIN_JWT_SECRET="${{secrets.ADMIN_JWT_SECRET}}" \
+          --build-arg API_TOKEN_SALT="${{secrets.API_TOKEN_SALT}}" \
+          --build-arg APP_KEYS="${{secrets.APP_KEYS}}" \
+          --build-arg AWS_ACCESS_KEY_ID="${{secrets.AWS_ACCESS_KEY_ID}}" \
+          --build-arg AWS_ACCESS_SECRET="${{secrets.AWS_ACCESS_SECRET}}" \
+          --build-arg AWS_BUCKET_NAME="${{secrets.AWS_BUCKET_NAME}}" \
+          --build-arg AWS_REGION="${{secrets.AWS_REGION}}" \
+          --build-arg DABASE_CLIENT="${{secrets.DATABASE_CLIENT}}" \
+          --build-arg DATABASE_URL="${{secrets.DATABASE_URL}}" \
+          --build-arg DOCKER_TOKEN="${{secrets.DOCKER_TOKEN}}" \
+          --build-arg DOCKER_USERNAME="${{secrets.DOCKER_USERNAME}}" \
+          --build-arg HOST="${{secrets.HOST}}" \
+          --build-arg JWT_SECRET="${{secrets.JWT_SECRET}}" \
+          --build-arg PORT="${{secrets.PORT}}" \
+          --build-arg TRANSFER_TOKEN_SALT="${{secrets.TRANSFER_TOKEN_SALT}}"
 
       - name: Login to DockerHub
         run: docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_TOKEN}}
