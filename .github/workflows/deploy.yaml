@@ -21,10 +21,10 @@ jobs:
         run: yarn test
 
       - name: Build image
-        run: docker build . --file Dockerfile --tag da-portfolio-cms:latest
+        run: docker build . --file Dockerfile --tag wesleyxsilva/da-portfolio-cms:latest
 
       - name: Login to DockerHub
         run: docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_TOKEN}}
 
       - name: Push image
-        run: docker push da-portfolio-cms:latest
+        run: docker push wesleyxsilva/da-portfolio-cms:latest
