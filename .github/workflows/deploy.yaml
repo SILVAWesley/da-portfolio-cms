@@ -7,7 +7,7 @@ on:
     branches: ['test/test-workflow']
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -21,4 +21,10 @@ jobs:
         run: yarn test
 
       - name: Build image
-        run: docker build . --file Dockerfile --tag da-portfolio-cms:$(date +%s)
+        run: docker build . --file Dockerfile --tag da-portfolio-cms:latest
+
+      - name: Login to DockerHub
+        run: docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_TOKEN}}
+
+      - name: Push image
+        run: docker push da-portfolio-cms:latest
