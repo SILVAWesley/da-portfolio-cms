@@ -1,0 +1,24 @@
+name: Deploy image to AWS EC2
+
+on:
+  push:
+    branches: ['test/test-workflow']
+  pull_request:
+    branches: ['test/test-workflow']
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        run: yarn install --fronzen-lockfile
+
+      - name: Run tests
+        run: yarn test
+
+      - name: Build image
+        run: docker build . --file Dockerfile --tag da-portfolio-cms:$(date +%s)
