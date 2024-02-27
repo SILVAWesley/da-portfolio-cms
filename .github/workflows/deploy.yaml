@@ -56,7 +56,15 @@ jobs:
       - name: Pull image
         run: docker pull wesleyxsilva/da-portfolio-cms:latest
 
-      - name: Run container
+      - name: Stop current container
+        run: docker stop da-portfolio-cms
+        continue-on-error: true
+
+      - name: Remove current container
+        run: docker rm da-portfolio-cms
+        continue-on-error: true
+
+      - name: Run new container
         run: |
           docker run -d -p 1337:1337 \
           -e ADMIN_JWT_SECRET="${{secrets.ADMIN_JWT_SECRET}}" \
@@ -75,5 +83,5 @@ jobs:
           -e PORT="${{secrets.PORT}}" \
           -e TRANSFER_TOKEN_SALT="${{secrets.TRANSFER_TOKEN_SALT}}" \
           --restart always \
-          --name da-portfolio-cms
+          --name da-portfolio-cms \
           wesleyxsilva/da-portfolio-cms
