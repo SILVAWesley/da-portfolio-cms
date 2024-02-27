@@ -75,4 +75,5 @@ jobs:
           -e PORT="${{secrets.PORT}}" \
           -e TRANSFER_TOKEN_SALT="${{secrets.TRANSFER_TOKEN_SALT}}" \
           --restart always \
+          --name da-portfolio-cms
           wesleyxsilva/da-portfolio-cms
