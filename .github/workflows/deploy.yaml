@@ -39,7 +39,8 @@ jobs:
           --build-arg JWT_SECRET="${{secrets.JWT_SECRET}}" \
           --build-arg PORT="${{secrets.PORT}}" \
           --build-arg TRANSFER_TOKEN_SALT="${{secrets.TRANSFER_TOKEN_SALT}}" \
-          . --file Dockerfile --tag wesleyxsilva/da-portfolio-cms:latest
+          -t wesleyxsilva/da-portfolio-cms:latest \
+          -f Dockerfile .
 
       - name: Login to DockerHub
         run: docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_TOKEN}}
@@ -57,7 +58,7 @@ jobs:
 
       - name: Run container
         run: |
-          docker run -d -p 1337:1337 --name da-portfolio-cms wesleyxsilva/da-portfolio-cms \
+          docker run -d -p 1337:1337 \
           -e "ADMIN_JWT_SECRET=${{secrets.ADMIN_JWT_SECRET}}" \
           -e "API_TOKEN_SALT=${{secrets.API_TOKEN_SALT}}" \
           -e "APP_KEYS=${{secrets.APP_KEYS}}" \
@@ -72,4 +73,5 @@ jobs:
           -e "HOST=${{secrets.HOST}}" \
           -e "JWT_SECRET=${{secrets.JWT_SECRET}}" \
           -e "PORT=${{secrets.PORT}}" \
-          -e "TRANSFER_TOKEN_SALT=${{secrets.TRANSFER_TOKEN_SALT}}"
+          -e "TRANSFER_TOKEN_SALT=${{secrets.TRANSFER_TOKEN_SALT}}" \
+          --name da-portfolio-cms wesleyxsilva/da-portfolio-cms
