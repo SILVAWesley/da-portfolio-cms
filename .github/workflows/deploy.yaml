@@ -65,7 +65,7 @@ jobs:
         continue-on-error: true
 
       - name: Docker Prune
-        run: docker image prune -a
+        run: docker image prune -a -f
         continue-on-error: true
 
       - name: Run new container
