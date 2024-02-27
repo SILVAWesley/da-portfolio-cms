@@ -74,4 +74,5 @@ jobs:
           -e JWT_SECRET="${{secrets.JWT_SECRET}}" \
           -e PORT="${{secrets.PORT}}" \
           -e TRANSFER_TOKEN_SALT="${{secrets.TRANSFER_TOKEN_SALT}}" \
-          --name da-portfolio-cms wesleyxsilva/da-portfolio-cms
+          --restart always \
+          wesleyxsilva/da-portfolio-cms
