@@ -2,9 +2,7 @@ name: Deploy image to AWS EC2
 
 on:
   push:
-    branches: ['test/test-workflow']
-  pull_request:
-    branches: ['test/test-workflow']
+    branches: ['main']
 
 jobs:
   build:
