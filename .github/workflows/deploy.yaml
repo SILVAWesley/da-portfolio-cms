@@ -64,6 +64,10 @@ jobs:
         run: docker rm da-portfolio-cms
         continue-on-error: true
 
+      - name: Docker Prune
+        run: docker image prune -a
+        continue-on-error: true
+
       - name: Run new container
         run: |
           docker run -d -p 1337:1337 \
