@@ -43,7 +43,7 @@ jobs:
           -f Dockerfile .
 
       - name: Login to DockerHub
-        run: docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_TOKEN}}
+        run: docker login -u "${{secrets.DOCKER_USERNAME}}" -p "${{secrets.DOCKER_TOKEN}}"
 
       - name: Push image
         run: docker push wesleyxsilva/da-portfolio-cms:latest
@@ -59,19 +59,19 @@ jobs:
       - name: Run container
         run: |
           docker run -d -p 1337:1337 \
-          -e "ADMIN_JWT_SECRET=${{secrets.ADMIN_JWT_SECRET}}" \
-          -e "API_TOKEN_SALT=${{secrets.API_TOKEN_SALT}}" \
-          -e "APP_KEYS=${{secrets.APP_KEYS}}" \
-          -e "AWS_ACCESS_KEY_ID="${{secrets.AWS_ACCESS_KEY_ID}}" \
-          -e "AWS_ACCESS_SECRET=${{secrets.AWS_ACCESS_SECRET}}" \
-          -e "AWS_BUCKET_NAME=${{secrets.AWS_BUCKET_NAME}}" \
-          -e "AWS_REGION=${{secrets.AWS_REGION}}" \
-          -e "DABASE_CLIENT=${{secrets.DATABASE_CLIENT}}" \
-          -e "DATABASE_URL=${{secrets.DATABASE_URL}}" \
-          -e "DOCKER_TOKEN=${{secrets.DOCKER_TOKEN}}" \
-          -e "DOCKER_USERNAME=${{secrets.DOCKER_USERNAME}}" \
-          -e "HOST=${{secrets.HOST}}" \
-          -e "JWT_SECRET=${{secrets.JWT_SECRET}}" \
-          -e "PORT=${{secrets.PORT}}" \
-          -e "TRANSFER_TOKEN_SALT=${{secrets.TRANSFER_TOKEN_SALT}}" \
+          -e ADMIN_JWT_SECRET="${{secrets.ADMIN_JWT_SECRET}}" \
+          -e API_TOKEN_SALT="${{secrets.API_TOKEN_SALT}}" \
+          -e APP_KEYS="${{secrets.APP_KEYS}}" \
+          -e AWS_ACCESS_KEY_ID="${{secrets.AWS_ACCESS_KEY_ID}}" \
+          -e AWS_ACCESS_SECRET="${{secrets.AWS_ACCESS_SECRET}}" \
+          -e AWS_BUCKET_NAME="${{secrets.AWS_BUCKET_NAME}}" \
+          -e AWS_REGION="${{secrets.AWS_REGION}}" \
+          -e DABASE_CLIENT="${{secrets.DATABASE_CLIENT}}" \
+          -e DATABASE_URL="${{secrets.DATABASE_URL}}" \
+          -e DOCKER_TOKEN="${{secrets.DOCKER_TOKEN}}" \
+          -e DOCKER_USERNAME="${{secrets.DOCKER_USERNAME}}" \
+          -e HOST="${{secrets.HOST}}" \
+          -e JWT_SECRET="${{secrets.JWT_SECRET}}" \
+          -e PORT="${{secrets.PORT}}" \
+          -e TRANSFER_TOKEN_SALT="${{secrets.TRANSFER_TOKEN_SALT}}" \
           --name da-portfolio-cms wesleyxsilva/da-portfolio-cms
