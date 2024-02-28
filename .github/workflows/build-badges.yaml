@@ -54,7 +54,7 @@ jobs:
         uses: schneegans/dynamic-badges-action@v1.7.0
         with:
           auth: ${{ secrets.GIST_SECRET }}
-          gistID: <gist-ID>
+          gistID: 8231290e15e01b4400d36828fa9eae5a
           filename: da-portfolio-cms__${{ env.BRANCH }}.json
           label: Test Coverage
           message: ${{ env.COVERAGE }}
