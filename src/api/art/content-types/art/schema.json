@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "arts",
+  "info": {
+    "singularName": "art",
+    "pluralName": "arts",
+    "displayName": "Art"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "images": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true,
+      "required": true
+    }
+  }
+}
