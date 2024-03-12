@@ -1,57 +1,104 @@
-# 🚀 Getting started with Strapi
+<div align="center">
 
-Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.
+<h3 align="center">Digital Artist Portfolio CMS</h3>
 
-### `develop`
+<p>A Strapi a CMS for a digital artist portfolio</p>
 
-Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-develop)
+<br/>
+
+<nav>
+  
+[View Portfolio](https://liliagraziely.com)
+·
+[Report a Bug](https://github.com/SILVAWesley/da-portfolio-cms/issues)
+
+</nav>
+
+</div>
+
+## About this project
+
+As a digital artist, it is very important to have a way to show your work in a way that interested people and companies
+can get in touch with you. The art pieces that digital artists want to expose might change from time to time. That being said,
+it is very handy for them not having to contact someone who knows how to code to do that. Also, as a developer, getting
+requests just to add more art pieces, or change content in the page, can get really frustrating. But also developing a platform
+to manage content is very complex and it might be more work than actually possible. <br/> <br/>
+That's where this **headless Content Management System (CMS)** built with **Strapi** comes into place. It can manage the showcasing arts,
+texts and contact informations in the portfolio while offering:
+
+- Internationalization (in english and brazilian portuguese)
+- Image storage in an S3 Bucket
+- Full CI/CD with Github Actions and Docker ([checkout the deployment workflow file](.github/workflows/deploy.yaml))
+- Deployment on the cloud (AWS)
+- Easy local development through the [docker-compose file](docker-compose.yml)
+- A postgres database managed by Vercel
+- Unit tests using Vitest
+- ESLint/Prettier as linting and formating tools
+- Husky, commitzen and commitlint to help maintaining the patterns
+
+### Built with
+
+<div align="center">
+  
+  ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6.svg?style=for-the-badge&logo=TypeScript&logoColor=white)
+  ![Svelte](https://img.shields.io/badge/svelte-%23f1413d.svg?style=for-the-badge&logo=svelte&logoColor=white)
+  ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+  ![DaisyUI](https://img.shields.io/badge/daisyui-5A0EF8?style=for-the-badge&logo=daisyui&logoColor=white)
+  ![Strapi](https://img.shields.io/badge/strapi-%232E7EEA.svg?style=for-the-badge&logo=strapi&logoColor=white)
+  ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
+  ![Playwright](https://img.shields.io/badge/Playwright-2EAD33.svg?style=for-the-badge&logo=Playwright&logoColor=white)
+  ![Vitest](https://img.shields.io/badge/Vitest-6E9F18.svg?style=for-the-badge&logo=Vitest&logoColor=white)
+  ![Docker](https://img.shields.io/badge/Docker-2496ED.svg?style=for-the-badge&logo=Docker&logoColor=white)
+  ![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)
+  ![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
+  ![GithubActions](https://img.shields.io/badge/GitHub%20Actions-2088FF.svg?style=for-the-badge&logo=GitHub-Actions&logoColor=white)
+  ![NGINX](https://img.shields.io/badge/NGINX-009639.svg?style=for-the-badge&logo=NGINX&logoColor=white)
+  
+</div>
+
+## Getting Started
+
+You can [access the production release](https://liliagraziely.com). Or, if you want to run the code locally, follow the steps described below.
+
+### Prerequisites
+
+- `node.js >= 18.x & <= 20.x`
+- `yarn >= 1.x` or `npm >= 9.x`
+- `docker >= 25.x`
+
+### Installing
+
+1. Clone the repository using git
 
 ```
-npm run develop
-# or
-yarn develop
+git clone https://github.com/SILVAWesley/da-portfolio-cms.git
 ```
 
-### `start`
-
-Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-start)
+2. Install the dependencies
 
 ```
-npm run start
-# or
-yarn start
+yarn install
 ```
 
-### `build`
+### Setup .env.compose
 
-Build your admin panel. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-build)
+1. Create a `.env.compose` file in the `root` directory
+2. Fill the file following [the template env file](.env.example)
+3. When using docker-compose (as recommended by this tutorial), fill the database connection like this:
+   ```
+   DATABASE_CLIENT=postgres
+   DATABASE_HOST=db
+   DATABASE_PORT=5432
+   DATABASE_NAME=strapi
+   DATABASE_USERNAME=postgres
+   DATABASE_PASSWORD=postgres
+   DATABASE_SSL=false
+   ```
+
+### Start docker compose
+
+1. Run the [docker-compose file](docker-compose.yml):
 
 ```
-npm run build
-# or
-yarn build
+docker compose up
 ```
-
-## ⚙️ Deployment
-
-Strapi gives you many possible deployment options for your project including [Strapi Cloud](https://cloud.strapi.io). Browse the [deployment section of the documentation](https://docs.strapi.io/dev-docs/deployment) to find the best solution for your use case.
-
-## 📚 Learn more
-
-- [Resource center](https://strapi.io/resource-center) - Strapi resource center.
-- [Strapi documentation](https://docs.strapi.io) - Official Strapi documentation.
-- [Strapi tutorials](https://strapi.io/tutorials) - List of tutorials made by the core team and the community.
-- [Strapi blog](https://strapi.io/blog) - Official Strapi blog containing articles made by the Strapi team and the community.
-- [Changelog](https://strapi.io/changelog) - Find out about the Strapi product updates, new features and general improvements.
-
-Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/strapi). Your feedback and contributions are welcome!
-
-## ✨ Community
-
-- [Discord](https://discord.strapi.io) - Come chat with the Strapi community including the core team.
-- [Forum](https://forum.strapi.io/) - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
-- [Awesome Strapi](https://github.com/strapi/awesome-strapi) - A curated list of awesome things related to Strapi.
-
----
-
-<sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
