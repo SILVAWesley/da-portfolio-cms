@@ -51,9 +51,6 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      - name: Pull image
-        run: docker pull wesleyxsilva/da-portfolio-cms:latest
-
       - name: Stop current container
         run: docker stop da-portfolio-cms
         continue-on-error: true
@@ -65,6 +62,9 @@ jobs:
       - name: Docker Prune
         run: docker image prune -a -f
         continue-on-error: true
+
+      - name: Pull image
+        run: docker pull wesleyxsilva/da-portfolio-cms:latest
 
       - name: Run new container
         run: |
