@@ -1,5 +1,3 @@
-import { env } from 'process';
-
 export default ({ env }) => [
   'strapi::logger',
   'strapi::errors',
